@@ -22,11 +22,13 @@
 }
 .item-number {
     width: 25%;
+    cursor: pointer;
 }
 
 .item-ac {
     width: 75%;
     padding-left: 3px; /*because of padding */
+    cursor: pointer;
 }
 
 .item-display {
@@ -36,5 +38,6 @@
 .item-zero {
     width: 50%;
     padding-left: 2px;
+    cursor: pointer;
 }
 

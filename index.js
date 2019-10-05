@@ -1,11 +1,24 @@
 
+
+// these variables are for calculation
 var str1 = ""
 var str2 = ""
 var oper1 = ""
 var oper2 = ""
 var res = ""
 
+// these variable are for the number and operator buttons in the calculator
+var num = []
+var oper = []
+var i 
+var numSet = ["num0", "num1", "num2", "num3", "num4", "num5", "num6", "num7", "num8", "num9", "deci"]
+var operSet = ["add", "minus", "time", "divide"]
 
+
+//___________________________________________________________________________________________________
+// FUNCTIONS
+//
+//
 
 function number() {
   if (!oper1) {
@@ -44,8 +57,8 @@ function calculation() {
     document.getElementById("display").innerHTML = "need more input"
   } 
   
-  var int1 = parseInt(str1)
-  var int2 = parseInt(str2)
+  var int1 = parseFloat(str1)
+  var int2 = parseFloat(str2)
   switch (oper1) {
     case "+":
       res = int1 +  int2
@@ -69,20 +82,24 @@ function calculation() {
   str2 = ""
 }
 
-var num7 = document.getElementById("num7")
-var num8 = document.getElementById('num8')
-var num9 = document.getElementById("num9")
-var time = document.getElementById("time")
-var add = document.getElementById("add")
+
+//____________________________________________________________________________________________________
+// USER INPUTS & CALLING APPROPRIATE FUNCTIONS
+//
+//
+
+for (i=0; i<11; i++) {
+  num[i] = document.getElementById(numSet[i])
+  num[i].addEventListener("click", number)
+}
+
+for (i=0; i<4; i++) {
+  oper[i] = document.getElementById(operSet[i])
+  oper[i].addEventListener("click", operator)
+}
+
 
 var ac = document.getElementById("ac")
 var calc = document.getElementById("calc")
-
-num7.addEventListener("click", number)
-num8.addEventListener("click", number)
-num9.addEventListener("click", number)
-time.addEventListener("click", operator)
-add.addEventListener("click", operator)
-
 ac.addEventListener("click", clear)
 calc.addEventListener("click", calculation)
